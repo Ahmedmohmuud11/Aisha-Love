@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Forever Love ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  color: white;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, #78153e, transparent 55%),
+    linear-gradient(160deg, #10000d, #39001f, #16000e);
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 430px;
+  margin: 45px auto;
+  padding: 28px 20px;
+  border: 1px solid #ff9ac4;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 0 35px #ff2f8060;
+  backdrop-filter: blur(8px);
+}
+
+.rose {
+  font-size: 42px;
+  animation: sway 2s infinite alternate;
+}
+
+.heart {
+  font-size: 75px;
+  filter: drop-shadow(0 0 18px #ff367f);
+  animation: beat 1.1s infinite;
+}
+
+h1 {
+  color: #ffb7d5;
+  font-size: 29px;
+  text-shadow: 0 0 15px #ff408d;
+}
+
+.subtitle {
+  color: #ffd9e9;
+  font-style: italic;
+}
+
+p {
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+.line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ff8ab9, transparent);
+  margin: 23px 0;
+}
+
+button {
+  border: 1px solid #ffb6d4;
+  border-radius: 30px;
+  padding: 13px 22px;
+  margin: 8px;
+  color: white;
+  font-size: 15px;
+  background: linear-gradient(135deg, #ff287b, #a9004c);
+  box-shadow: 0 0 18px #ff287b65;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+#secret {
+  display: none;
+  color: #ffe0ed;
+  animation: appear 1s ease;
+}
+
+#clock {
+  color: #ffc3dc;
+  font-size: 15px;
+}
+
+.floating {
+  position: fixed;
+  top: -40px;
+  z-index: 1;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.16); }
+}
+
+@keyframes sway {
+  to { transform: rotate(12deg) scale(1.08); }
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+  font-size: 13px;
+  color: #eeb4cc;
+  margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="rose">🌹 🌹 🌹</div>
+  <div class="heart">❤️</div>
+
+  <h1>My Forever Love</h1>
+  <div class="subtitle">To my beautiful Aisha 🦋</div>
+
+  <div class="line"></div>
+
+  <p>
+    Aishayda qaaliga ah,<br>
+    waxaad tahay farxadda qalbigayga,<br>
+    iftiinka maalmahayga,<br>
+    iyo qofka aan mar walba<br>
+    qalbigayga ku xafido. ❤️
+  </p>
+
+  <div class="line"></div>
+
+  <h3>💌 Fariin adiga kuu gaar ah</h3>
+
+  <button onclick="openLetter()">
+    Fur warqadda jacaylka 💕
+  </button>
+
+  <div id="secret">
+    <div class="rose">💐</div>
+    <h2>Gacalisadayda ❤️</h2>
+    <p>
+      Haddii dunidu kun jeer is beddesho,
+      waxaan rajaynayaa in qalbigaygu
+      weli kuu hayo isla jacaylkan.
+      Adigu waxaad tahay qof aan
+      si gaar ah u doortay. 🥹❤️
+    </p>
+    <h3>I Love You, Aisha ♾️</h3>
+  </div>
+  <footer>
+    Made with love, just for you ❤️
+  </footer>
+
+</div>
+
+<script>
+function openLetter() {
+  const letter = document.getElementById("secret");
+
+  if (letter.style.display === "block") {
+    letter.style.display = "none";
+  } else {
+    letter.style.display = "block";
+    makeHearts();
+  }
+}
+
+function makeHearts() {
+  const symbols = ["❤️", "💕", "💖", "🌹", "💗"];
+
+  for (let i = 0; i < 22; i++) {
+    const heart = document.createElement("span");
+
+    heart.className = "floating";
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 22) + "px";
+    heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7500);
+  }
+}
+
+setInterval(makeHearts, 5000);
+</script>
+
+</body>
+</html>
